@@ -57,13 +57,9 @@ import { ref, computed, onMounted } from 'vue';
 import { useData } from 'vitepress';
 
 // 获取状态页 URL
-// 通过 useData 获取 theme 配置，假设配置在该处，或者直接使用 env
-// VitePress 注入
-// 这里为了简单，如果有 public配置可以尝试获取，否则依靠构建时注入或硬编码
-// 用户原始代码是 Nuxt，这里适配 VitePress
 const { theme } = useData();
 // 尝试从 themeConfig 获取，或者 import.meta.env
-const statusPageUrl = import.meta.env.VITE_BETTER_STACK_STATUS_PAGE_URL || "";
+const statusPageUrl = "https://status.luoaowoo.cn/";
 
 // 定义 API 返回类型
 interface StatusResponse {
@@ -93,7 +89,7 @@ const fetchData = async () => {
             return;
         }
 
-        const res = await fetch(`/api/status?t=${refreshKey.value}`);
+        const res = await fetch(`https://status.luoaowoo.cn/api/status?t=${refreshKey.value}&apiKey=yqmXZGatfZd6FAwh6y1d65DS`);
         if (!res.ok) throw new Error('Network response was not ok');
         data.value = await res.json();
     } catch (e) {
