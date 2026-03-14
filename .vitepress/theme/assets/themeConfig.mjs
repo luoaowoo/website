@@ -197,7 +197,7 @@ export const themeConfig = {
         {
           icon: "/images/uptime-favicon.ico",
           name: "检测",
-          url: "http://nezha.meowhead.cn:8008",
+          url: "https://status.luoaowoo.cn/",
         },
         // {
         //   icon: "/images/logo/logo.webp",
@@ -303,7 +303,7 @@ export const themeConfig = {
       {
         text: "服务",
         items: [
-          { text: "站点状态", link: "http://nezha.meowhead.cn:8008", newTab: true },
+          { text: "站点状态", link: "https://status.luoaowoo.cn/", newTab: true },
         ],
       },
     ],
