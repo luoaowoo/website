@@ -157,7 +157,7 @@
           class="about-item map image"
           style="background-image: url(https://raw.20100907.xyz/other/tc.png)"
         >
-          <span class="position">我现在住在 <strong>中国，江苏省，苏州市</strong></span>
+          <span class="position">我现在住在 <strong>中国，河南省，郑州市</strong></span>
         </div>
         <div class="about-itsem info">
           <div class="info-item">
