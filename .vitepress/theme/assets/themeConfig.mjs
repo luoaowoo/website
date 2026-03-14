@@ -40,7 +40,7 @@ export const themeConfig = {
         },
       ],
       // favicon
-      ["link", { rel: "icon", href: "/favicon.ico" }],
+      ["link", { rel: "icon", href: "/images/logo/这是我的头像.jpg" }],
       // RSS
       [
         "link",
