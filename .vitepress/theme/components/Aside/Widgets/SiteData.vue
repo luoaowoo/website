@@ -25,35 +25,49 @@
           <i class="iconfont icon-visibility"></i>
           总访问量
         </span>
-        <span class="num">{{ statisticsData?.["总访问量"] || 0 }} 次</span>
+        <span class="num">
+          <span id="busuanzi_value_site_pv">0</span> 次
+        </span>
       </div>
       <div class="data-item">
         <span class="name">
           <i class="iconfont icon-account"></i>
           今日访问
         </span>
-        <span class="num">{{ statisticsData?.["今日访问"] || 0 }} 次</span>
+        <span class="num">
+          <span id="busuanzi_value_site_uv">0</span> 人
+        </span>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { getStatistics } from "@/api";
 import { daysFromNow } from "@/utils/helper";
 
 const { theme } = useData();
-const statisticsData = ref(null);
 
-const getStatisticsData = async () => {
-  if (theme.value.tongji?.["51la"]) {
-    const result = await getStatistics(theme.value.tongji["51la"]);
-    statisticsData.value = result;
+// 加载卜算子脚本
+const loadBusuanzi = () => {
+  // 如果已经加载过，不再重复加载
+  if (document.getElementById('busuanzi-script')) {
+    // 重新初始化卜算子
+    if (window.busuanzi) {
+      window.busuanzi.reload();
+    }
+    return;
   }
+  
+  const script = document.createElement('script');
+  script.id = 'busuanzi-script';
+  script.src = 'https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js';
+  script.async = true;
+  script.defer = true;
+  document.head.appendChild(script);
 };
 
 onMounted(() => {
-  getStatisticsData();
+  loadBusuanzi();
 });
 </script>
 
