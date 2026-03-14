@@ -135,6 +135,20 @@ export const getStatistics = async (key) => {
  * 天气
  */
 
+// 获取和风天气地理位置信息（通过 IP）
+export const getHeWeatherLocation = async (key) => {
+  const res = await fetch(`https://geoapi.qweather.com/v2/city/lookup?key=${key}&location=auto_ip`);
+  return await res.json();
+};
+
+// 获取和风天气信息
+export const getHeWeather = async (key, location) => {
+  const res = await fetch(
+    `https://devapi.qweather.com/v7/weather/now?key=${key}&location=${location}`,
+  );
+  return await res.json();
+};
+
 // 获取高德地理位置信息
 export const getAdcode = async (key) => {
   const res = await fetch(`https://restapi.amap.com/v3/ip?key=${key}`);

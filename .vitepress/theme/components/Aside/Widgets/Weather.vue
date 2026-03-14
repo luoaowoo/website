@@ -41,7 +41,7 @@
 </template>
 
 <script setup>
-import { getAdcode, getWeather } from '@/api'
+import { getHeWeatherLocation, getHeWeather } from '@/api'
 
 // 声明会在请求出错时抛出的事件
 const emit = defineEmits(['fetch-error'])
@@ -59,12 +59,25 @@ onMounted(async () => {
     return
   }
   try {
-    const { adcode } = await getAdcode(import.meta.env.VITE_WEATHER_KEY)
-    const { lives } = await getWeather(import.meta.env.VITE_WEATHER_KEY, adcode)
-    if (lives && lives.length > 0) {
-      weatherData.value = lives[0]
+    // 使用和风天气 API
+    const locationData = await getHeWeatherLocation('b5d49be2ee48497591e698c6b859f5d1')
+    if (locationData.code === '200' && locationData.location && locationData.location.length > 0) {
+      const location = locationData.location[0].id
+      const weatherResponse = await getHeWeather('b5d49be2ee48497591e698c6b859f5d1', location)
+      if (weatherResponse.code === '200') {
+        const now = weatherResponse.now
+        weatherData.value = {
+          city: locationData.location[0].name,
+          temperature: now.temp,
+          humidity: now.humidity,
+          winddirection: now.windDir,
+          windpower: now.windScale
+        }
+      } else {
+        throw new Error('获取天气数据失败：' + weatherResponse.code)
+      }
     } else {
-      throw new Error('天气数据为空')
+      throw new Error('获取地理位置失败：' + locationData.code)
     }
   } catch (e) {
     console.error('获取天气失败：', e)

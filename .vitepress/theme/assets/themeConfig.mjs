@@ -245,7 +245,7 @@ export const themeConfig = {
       },
       {
         icon: "github",
-        link: "https://www.github.com/luoaowoo/",
+        link: "https://github.com/luoaowoo/",
       },
       {
         icon: "telegram",
@@ -367,7 +367,7 @@ export const themeConfig = {
     },
     // 天气数据
     weather: {
-      enable: true,
+      enable: false,
     },
     HelloGithub: {
       enable: false,
@@ -400,7 +400,7 @@ export const themeConfig = {
   // 搜索
   // https://www.algolia.com/
   search: {
-    enable: false,
+    enable: true,
     appId: "7S5TICVX16",
     apiKey: "6b2108ce90a1c6c4c9b04e44b985535e",
   },
@@ -409,9 +409,9 @@ export const themeConfig = {
   // 请注意不是 Web端 (JS API)，免费申请，每日上限 5000 次
   // 此处提供的服务可能会超量从而无法访问，请自行申请！请自行申请！请自行申请！
   // 若此处设为空则调用 教书先生 API https://api.oioweb.cn/doc/weather/GetWeather
-  //weatherkey: {
-  //"key": "1d65cc630df1f212e1d2e928643e3974",
-  // },
+  weatherkey: {
+  "key": "1d65cc630df1f212e1d2e928643e3974",
+  },
   // 打赏
   rewardData: {
     enable: true,
