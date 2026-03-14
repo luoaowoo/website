@@ -49,7 +49,7 @@ emm……域名是自己买的，一年几十块钱，我是洛嗷呜。
 
 ### 小原的话
 
-### ![](https://vip.123pan.cn/1835897147/ymjew503t0m000dck7nxd1pj15yzohfqDIYwAIY2AwexAvxPAdr2.png)
+ ![](https://vip.123pan.cn/1835897147/ymjew503t0m000dck7nxd1pj15yzohfqDIYwAIY2AwexAvxPAdr2.png)
 
 > emm 我想想 好像我们相互之间的影响挺大的 我的思维似乎也有些问题 写不出什么美好的措辞 也就写上这一段话 突然又想到了岳阳楼记 二六年春 ...
 >
