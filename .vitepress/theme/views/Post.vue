@@ -145,12 +145,51 @@ const handleUnlocked = () => {
   isUnlocked.value = true;
 };
 
+// 获取 Twikoo 访问量
+const getTwikooVisitors = async () => {
+  try {
+    const { comment } = theme.value;
+    if (!comment?.enable || comment?.type !== "twikoo") return;
+    
+    // 等待 Twikoo 加载
+    await new Promise((resolve) => {
+      const checkTwikoo = () => {
+        if (typeof twikoo !== "undefined") {
+          resolve();
+        } else {
+          setTimeout(checkTwikoo, 100);
+        }
+      };
+      checkTwikoo();
+    });
+    
+    // 获取访问量
+    twikoo.getCommentsCount({
+      envId: comment.twikoo.envId,
+      urls: [window.location.pathname],
+      includeReply: false,
+    }).then((res) => {
+      const count = res[0]?.count || 0;
+      const visitorsEl = document.getElementById("twikoo_visitors");
+      if (visitorsEl) {
+        visitorsEl.textContent = count;
+      }
+    }).catch((err) => {
+      console.error("获取访问量失败:", err);
+    });
+  } catch (error) {
+    console.error("获取 Twikoo 访问量出错:", error);
+  }
+};
+
 onMounted(() => {
   initFancybox(theme.value);
   // 检查是否已解锁
   if (hasPassword.value && checkUnlocked()) {
     isUnlocked.value = true;
   }
+  // 获取访问量
+  getTwikooVisitors();
 });
 </script>
 
