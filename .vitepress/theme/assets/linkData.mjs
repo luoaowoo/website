@@ -21,10 +21,10 @@ const linkData = [
     typeDesc: "👇洛嗷呜的好朋友们👇",
     typeList: [
       {
-        name: "bbb-lsy07",
-        avatar: "/images/friend/bbb-lsy07.webp",
-        desc: "科技激荡人文，洞见智慧本真。",
-        url: "https://blog.6uu.us/",
+        name: "Jinao的小窝",
+        avatar: "https://cn.jinao.wang/favicon.ico",
+        desc: "别把青春困在遗憾里，要永远自由和潇洒",
+        url: "https://cn.jinao.wang",
       },
     ],
   },
