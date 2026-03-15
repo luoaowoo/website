@@ -5,7 +5,7 @@ export const themeConfig = {
     // 站点标题
     title: "洛嗷呜の小站",
     // 站点描述
-    description: "👆洛嗷呜天下第一好看👆",
+    description: "👆洛嗷呜天下第一好看",
     // 站点logo
     logo: "https://vip.123pan.cn/1835897147/yk6baz03t0l000dck93toti09r2scf6yDIYwAIY2AwexAvxPAdr2.jpg",
     // 站点地址
