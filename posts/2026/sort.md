@@ -4,7 +4,7 @@ date: 2026-03-15
 
 categories: ["技术性"]
 
-tags: ["信息学相关", "研究相关"]
+tags: ["OI", "算法"]
 
 cover: " "
 
