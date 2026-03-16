@@ -47,17 +47,17 @@ emm……域名是自己买的，一年几十块钱，我是洛嗷呜。
 
 （抱歉，有的人没有邀请到。如果你想，你也可以给我投稿你对我的印象到邮箱**luoaowoo@outlook.com**）
 
-### 小原的话
+### `小原`的话
 
- ![](https://vip.123pan.cn/1835897147/ymjew503t0m000dck7nxd1pj15yzohfqDIYwAIY2AwexAvxPAdr2.png)
+ ![小原的话](https://vip.123pan.cn/1835897147/ymjew503t0m000dck7nxd1pj15yzohfqDIYwAIY2AwexAvxPAdr2.png)
 
 > emm 我想想 好像我们相互之间的影响挺大的 我的思维似乎也有些问题 写不出什么美好的措辞 也就写上这一段话 突然又想到了岳阳楼记 二六年春 ...
 >
 > eo挺好的 ，但不知道这博客能活多久 也不知道我们还能活多久 但也希望这个博客活下去 我们也能活下去
 
-### 宁喧的话
+### `宁喧`的话
 
-![](https://vip.123pan.cn/1835897147/ymjew503t0n000dck7o7xn0p1ryzvlfiDIYwAIY2AwexAvxPAdr2.jpg)
+![宁喧的话](https://vip.123pan.cn/1835897147/ymjew503t0n000dck7o7xn0p1ryzvlfiDIYwAIY2AwexAvxPAdr2.jpg)
 
 > 给洛嗷呜的信：
 >
@@ -71,9 +71,9 @@ emm……域名是自己买的，一年几十块钱，我是洛嗷呜。
 >
 > ​	你的MVP结算画面还在制作中……
 
-### 王总的话
+### `王总`的话
 
-![](https://vip.123pan.cn/1835897147/yk6baz03t0l000dckaogxw69yp4e6xxhDIYwAIY2AwexAvxPAdr2.png)
+![王总的话](https://vip.123pan.cn/1835897147/yk6baz03t0l000dckaogxw69yp4e6xxhDIYwAIY2AwexAvxPAdr2.png)
 
 > 你总说想成为一名好老师，我一直都记得。我们虽渺小，却从不会被理想困住——希望你可以带着这份温柔与热忱，一步步靠近讲台，把见识与光慢慢讲给更多人听。这样认真又坚定的你，一定会成为照亮学生的好老师。
 
