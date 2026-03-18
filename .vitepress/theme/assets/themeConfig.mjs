@@ -16,7 +16,7 @@ export const themeConfig = {
     author: {
       name: "洛嗷呜",
       cover: "https://vip.123pan.cn/1835897147/yk6baz03t0l000dck93toti09r2scf6yDIYwAIY2AwexAvxPAdr2.jpg",
-      email: "kazukokawagawa@qq.com",
+      email: "luoaowoo@outlook.com",
       link: "https://luoaowoo.cn",
     },
   },
@@ -352,13 +352,15 @@ export const themeConfig = {
       // 倒计时日期
       data: {
         name: "生日",
-        date: "2026-03-17",
+        date: "2027-03-17",
       },
     },
     timing: {
       enable: true,
       name: "洛嗷呜", //要显示的名字
       event: "活着", //事件名称
+
+      
       date: "2010-03-17", //出生日期
     },
     // 站点数据
