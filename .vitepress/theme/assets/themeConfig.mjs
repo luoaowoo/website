@@ -359,8 +359,10 @@ export const themeConfig = {
       enable: true,
       name: "洛嗷呜", //要显示的名字
       event: "活着", //事件名称
-
-      
+      date: "2010-03-17", //出生日期
+      enable: true,
+      name: "洛嗷呜", //要显示的名字
+      event: "活着", //事件名称
       date: "2010-03-17", //出生日期
     },
     // 站点数据
