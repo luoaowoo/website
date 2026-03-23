@@ -278,7 +278,7 @@ export const themeConfig = {
       {
         text: "项目",
         items: [
-          { text: "本站源码", link: "https://github.com/luoaowoo/vitepress-theme-curve", newTab: true },
+          { text: "本站源码", link: "https://github.com/luoaowoo/website", newTab: true },
           { text: "2048", link: "https://2048.luoaowoo.cn", newTab: true },
         ],
       },
