@@ -1,8 +1,8 @@
 ---
 title: "关于本站"
 date: 2026-03-14
-categories: ["站点信息"]
-tags: ["折腾相关", "网站相关"]
+categories: []
+tags: []
 cover: " "
 # cover是封面图片
 description: "这里是本站第一条博客。讲述该站从哪里来，以及它以后要做什么。里面还会有好朋友们的话"
