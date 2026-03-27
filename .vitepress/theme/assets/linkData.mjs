@@ -22,7 +22,7 @@ const linkData = [
     typeList: [
       {
         name: "Jinao的小窝",
-        avatar: "https://cn.jinao.wang/favicon.ico",
+        avatar: "https://open-bucket.jinao.wang/Space/Public/1772392829882.png?imageView2/0/w/800",
         desc: "别把青春困在遗憾里，要永远自由和潇洒",
         url: "https://cn.jinao.wang",
       },
