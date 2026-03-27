@@ -28,10 +28,11 @@ const initComments = async (themeConfig) => {
         return await new Promise((resolve, reject) => {
           loadScript(option[commentType].js, {
             callback: () => {
-              if (typeof twikoo === "object") {
-                resolve(twikoo);
+              const twikooGlobal = typeof window !== "undefined" ? window.twikoo : undefined;
+              if (twikooGlobal && typeof twikooGlobal.init === "function") {
+                resolve(twikooGlobal);
               } else {
-                reject(new Error("Twikoo 初始化失败"));
+                reject(new Error("Twikoo 初始化失败，twikoo 未声明或未正确加载"));
               }
             },
           });

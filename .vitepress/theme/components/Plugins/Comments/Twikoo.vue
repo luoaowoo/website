@@ -18,7 +18,7 @@ const { theme } = useData();
 const { comment } = theme.value;
 
 // 评论数据
-const twikoo = ref(null);
+const twikooInstance = ref(null);
 const commentRef = ref(null);
 
 // 初始化 Twikoo
@@ -26,7 +26,10 @@ const initTwikoo = async () => {
   try {
     await nextTick();
     const Twikoo = await initComments(theme.value);
-    twikoo.value = Twikoo.init({
+    if (!Twikoo || typeof Twikoo.init !== "function") {
+      throw new Error("Twikoo 未声明或未被正确初始化");
+    }
+    twikooInstance.value = Twikoo.init({
       el: commentRef.value || "#comment-dom",
       envId: comment.twikoo.envId,
       onCommentLoaded: () => {
@@ -35,7 +38,7 @@ const initTwikoo = async () => {
         jumpRedirect(null, theme.value, true);
       },
     });
-    return twikoo.value;
+    return twikooInstance.value;
   } catch (error) {
     console.error("初始化评论出错：", error);
   }

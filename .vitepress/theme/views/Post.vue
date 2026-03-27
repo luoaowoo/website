@@ -151,20 +151,27 @@ const getTwikooVisitors = async () => {
     const { comment } = theme.value;
     if (!comment?.enable || comment?.type !== "twikoo") return;
     
-    // 等待 Twikoo 加载
-    await new Promise((resolve) => {
+    // 等待 Twikoo 加载并声明
+    const twikooGlobal = await new Promise((resolve, reject) => {
       const checkTwikoo = () => {
-        if (typeof twikoo !== "undefined") {
-          resolve();
+        if (typeof window !== "undefined" && typeof window.twikoo !== "undefined") {
+          resolve(window.twikoo);
         } else {
           setTimeout(checkTwikoo, 100);
         }
       };
       checkTwikoo();
+      // 超时保护 10s
+      setTimeout(() => reject(new Error("twikoo 加载超时")), 10000);
     });
-    
+
+    if (!twikooGlobal || typeof twikooGlobal.getCommentsCount !== "function") {
+      console.warn("twikoo 未正确声明或方法不可用");
+      return;
+    }
+
     // 获取访问量
-    twikoo.getCommentsCount({
+    twikooGlobal.getCommentsCount({
       envId: comment.twikoo.envId,
       urls: [window.location.pathname],
       includeReply: false,
