@@ -25,49 +25,54 @@
           <i class="iconfont icon-visibility"></i>
           总访问量
         </span>
-        <span class="num">
-          <span id="busuanzi_value_site_pv">0</span> 次
-        </span>
+        <span class="num" id="busuanzi_value_site_pv">0</span>
       </div>
       <div class="data-item">
         <span class="name">
           <i class="iconfont icon-account"></i>
-          今日访问
+          总访客数
         </span>
-        <span class="num">
-          <span id="busuanzi_value_site_uv">0</span> 人
-        </span>
+        <span class="num" id="busuanzi_value_site_uv">0</span>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
+import { useData } from 'vitepress';
+import { onMounted } from 'vue';
 import { daysFromNow } from "@/utils/helper";
 
 const { theme } = useData();
 
-// 加载卜算子脚本
-const loadBusuanzi = () => {
-  // 如果已经加载过，不再重复加载
-  if (document.getElementById('busuanzi-script')) {
-    // 重新初始化卜算子
-    if (window.busuanzi) {
-      window.busuanzi.reload();
-    }
+// 加载脚本函数
+const loadScript = (url, options = {}) => {
+  const { async = true, reload = false } = options;
+  
+  // 检查是否已经加载
+  const existingScript = document.querySelector(`script[src="${url}"]`);
+  if (existingScript && !reload) {
     return;
   }
   
+  // 如果需要重新加载，先移除旧脚本
+  if (existingScript && reload) {
+    existingScript.remove();
+  }
+  
+  // 创建新脚本
   const script = document.createElement('script');
-  script.id = 'busuanzi-script';
-  script.src = 'https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js';
-  script.async = true;
+  script.src = url;
+  script.async = async;
   script.defer = true;
   document.head.appendChild(script);
 };
 
 onMounted(() => {
-  loadBusuanzi();
+  loadScript("https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js", {
+    async: true,
+    reload: true,
+  });
 });
 </script>
 
@@ -98,6 +103,18 @@ onMounted(() => {
         padding-bottom: 0;
       }
     }
+  }
+}
+
+#busuanzi_value_site_pv {
+  &::after {
+    content: " 次";
+  }
+}
+
+#busuanzi_value_site_uv {
+  &::after {
+    content: " 人";
   }
 }
 </style>
