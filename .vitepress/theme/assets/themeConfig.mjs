@@ -163,7 +163,7 @@ export const themeConfig = {
     {
       text: "我的",
       items: [
-        { text: "时间线", link: "/pages/timeline", icon: "reward" },
+        { text: "时间线", link: "/pages/timeline", icon: "fish" },
         //{ text: "致谢名单", link: "/pages/thanks", icon: "reward" },
         { text: "关于本站", link: "/pages/about", icon: "contacts" },
       ],
