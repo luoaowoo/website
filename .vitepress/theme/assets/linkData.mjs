@@ -26,6 +26,12 @@ const linkData = [
         desc: "别把青春困在遗憾里，要永远自由和潇洒",
         url: "https://cn.jinao.wang",
       },
+      {
+        name: "小原blog",
+        avatar: "https://blog.meowhead.cn/assets/images/favicon.ico",
+        url: "https://blog.meowhead.cn/",
+        dosc: "小原技术blog3.2"
+      },
     ],
   },
     // 丢失
