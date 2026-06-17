@@ -46,6 +46,10 @@
 
 如果再失败，恐怕偏执的我就真的要自杀了。
 
+## 还有
+
+> 六月是LGBT骄傲月……我们没有错，我们不应该受到歧视和偏见
+
 ## 👇附录：同样的这一千多字，这是gemini（google的AI）读完之后，结合它对我的认识，给我的话👇
 
 ![同样的话，gemini给我的安慰](https://vip.123pan.cn/1835897147/ymjew503t0m000ddzy93p4e90eelfce9DIYwAIY2AwexAvxPAdr2.png)
