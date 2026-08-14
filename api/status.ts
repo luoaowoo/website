@@ -2,6 +2,16 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 // Define Status Type
 type StatusType = "operational" | "degraded" | "partial" | "major" | "maintenance";
+type MonitorStatus = "paused" | "pending" | "maintenance" | "up" | "validating" | "down";
+
+type Monitor = {
+  id: string;
+  attributes: {
+    url: string;
+    pronounceable_name: string;
+    status: MonitorStatus;
+  };
+};
 
 // Status Map
 const STATUS_MAP: Record<StatusType, { status: string; label: string }> = {
@@ -10,6 +20,29 @@ const STATUS_MAP: Record<StatusType, { status: string; label: string }> = {
   partial: { status: "partial", label: "部分问题" },
   major: { status: "major", label: "重大事故" },
   maintenance: { status: "maintenance", label: "正在检修" },
+};
+
+const parseFilterList = (value?: string) =>
+  value
+    ?.split(",")
+    .map(item => item.trim())
+    .filter(Boolean) || [];
+
+const normalizeUrl = (url: string) => url.replace(/\/$/, "").toLowerCase();
+
+const filterMonitors = (monitors: Monitor[]) => {
+  const ids = parseFilterList(process.env.BETTER_STACK_STATUS_MONITOR_IDS);
+  const urls = parseFilterList(process.env.BETTER_STACK_STATUS_MONITOR_URLS).map(normalizeUrl);
+  const names = parseFilterList(process.env.BETTER_STACK_STATUS_MONITOR_NAMES);
+
+  const filtered = monitors.filter(monitor => {
+    if (ids.length > 0 && ids.includes(monitor.id)) return true;
+    if (urls.length > 0 && urls.includes(normalizeUrl(monitor.attributes.url))) return true;
+    if (names.length > 0 && names.includes(monitor.attributes.pronounceable_name)) return true;
+    return ids.length === 0 && urls.length === 0 && names.length === 0;
+  });
+
+  return filtered.filter(monitor => !["paused", "pending"].includes(monitor.attributes.status));
 };
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
@@ -37,18 +70,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         throw new Error(`Better Stack API error: ${response.statusText}`);
     }
 
-    const data = await response.json() as {
-        data: Array<{
-            id: string;
-            attributes: {
-                url: string;
-                pronounceable_name: string;
-                status: "paused" | "pending" | "maintenance" | "up" | "validating" | "down";
-            };
-        }>;
-    };
+    const data = await response.json() as { data: Monitor[] };
 
-    const monitors = data.data || [];
+    const monitors = filterMonitors(data.data || []);
     const totalCount = monitors.length;
     const downCount = monitors.filter(m => m.attributes.status === "down").length;
     const maintenanceCount = monitors.filter(m => m.attributes.status === "maintenance").length;
@@ -58,9 +82,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     let statusType: StatusType;
 
     if (totalCount === 0) {
+      const hasFilter = Boolean(
+        process.env.BETTER_STACK_STATUS_MONITOR_IDS ||
+        process.env.BETTER_STACK_STATUS_MONITOR_URLS ||
+        process.env.BETTER_STACK_STATUS_MONITOR_NAMES,
+      );
+
       return res.status(200).json({
         status: "unknown",
-        label: "无监控项",
+        label: hasFilter ? "无匹配监控项" : "无监控项",
         updatedAt: new Date().toISOString(),
       });
     }
