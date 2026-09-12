@@ -22,7 +22,7 @@ const linkData = [
     typeList: [
       {
         name: "Jinao的小窝",
-        avatar: "https://open-bucket.jinao.wang/Space/Public/1772392829882.png?imageView2/0/w/800",
+        avatar: "https://open-bucket.jinao.wang/Space/Public/1781585801830.webp",
         desc: "别把青春困在遗憾里，要永远自由和潇洒",
         url: "https://cn.jinao.wang",
       },
@@ -30,7 +30,13 @@ const linkData = [
         name: "小原blog",
         avatar: "https://blog.meowhead.cn/assets/images/favicon.ico",
         url: "https://blog.meowhead.cn/",
-        dosc: "小原技术blog3.2"
+        desc: "小原技术blog3.2"
+      },
+      {
+        name: "Ventus Uta",
+        avatar: "https://avatars.githubusercontent.com/u/135337676?v=4",
+        url: "https://ventusuta.com/",
+        dosc: "8点、Classroom见"
       },
     ],
   },
